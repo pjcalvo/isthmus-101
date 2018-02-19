@@ -9,6 +9,9 @@ public class Header {
     @FindBy (css = ".header-signin-link")
     WebElement loginLink;
 
+    @FindBy (xpath = "//span[@data-selenium-id='lblIsSignedIn']")
+    WebElement signedInLabel;
+
     WebDriver driver;
 
     public Header(WebDriver _driver){
@@ -18,5 +21,9 @@ public class Header {
 
     public void clickLogin(){
         loginLink.click();
+    }
+
+    public boolean isUserSignedIn(){
+       return signedInLabel.isDisplayed();
     }
 }

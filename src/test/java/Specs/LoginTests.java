@@ -1,5 +1,6 @@
 package Specs;
 
+import Pages.SignInModal;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -9,20 +10,13 @@ import org.testng.annotations.*;
 
 public class LoginTests extends SpecsBaseClass{
 
-    @BeforeMethod
-    public void GoToTestPage() {
-        driver.manage().deleteAllCookies();
-        driver.get("https://www.1800contactstest.com");
-    }
-
     @Test ( priority = 1 )
     public void LoginSuccessful() {
 
             header.clickLogin();
             signInModal.signInUser("pablo@pablillo.com","123456");
 
-            WebElement welcome = driver.findElement(By.xpath("//span[@data-selenium-id='lblIsSignedIn']"));
-            Assert.assertTrue(welcome.isDisplayed());
+            Assert.assertTrue(header.isUserSignedIn());
     }
 
     @Test ( priority = 2 )
@@ -31,6 +25,8 @@ public class LoginTests extends SpecsBaseClass{
         header.clickLogin();
         signInModal.signInUser("pablo@pablillo.com","1234567");
 
+        Assert.assertEquals("We're sorry, something went wrong signing in.  Please make sure your information is correct and try again.",
+                signInModal.errorMessageContent());
     }
 
 }

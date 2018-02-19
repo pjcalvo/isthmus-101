@@ -17,6 +17,9 @@ public class SignInModal{
     @FindBy(xpath = "//input[@value='Sign In']")
     WebElement submitButton;
 
+    @FindBy(css = ".input-error")
+    WebElement errorMessage;
+
     WebDriver driver;
 
     public SignInModal(WebDriver _driver){
@@ -31,5 +34,9 @@ public class SignInModal{
         this.submitButton.click();
 
         driver.manage().deleteAllCookies();
+    }
+
+    public String errorMessageContent(){
+        return errorMessage.getText();
     }
 }

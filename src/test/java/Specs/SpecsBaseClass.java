@@ -14,14 +14,16 @@ public class SpecsBaseClass {
     SignInModal signInModal;
     Header header;
 
-    @BeforeSuite
+    @BeforeMethod
     public void InitializeTests(){
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         InitPages();
+
+        driver.get("https://www.1800contactstest.com");
     }
 
-    @AfterSuite
+    @AfterMethod
     public  void CleanUpDriver(){
         driver.quit();
     }
