@@ -1,5 +1,7 @@
 package Pages;
 
+import Helpers.DataHelper;
+import Model.User;
 import com.sun.xml.internal.ws.server.sei.MessageFiller;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,18 +24,26 @@ public class SignInModal{
 
     WebDriver driver;
 
-    public SignInModal(WebDriver _driver){
+    DataHelper dataHelper;
+
+    public SignInModal(WebDriver _driver, DataHelper dataHelper){
         this.driver =_driver;
         PageFactory.initElements(this.driver,this);
+        this.dataHelper = dataHelper;
     }
 
-    public void signInUser(String emailInput, String password){
+    public void signInUser(User _testUser){
 
-        this.emailInput.sendKeys(emailInput);
-        this.passwordInput.sendKeys(password);
+        this.emailInput.sendKeys(_testUser.email);
+        this.passwordInput.sendKeys(_testUser.password);
         this.submitButton.click();
 
         driver.manage().deleteAllCookies();
+    }
+
+    public void signInUser(){
+
+       signInUser(dataHelper.existingUser());
     }
 
     public String errorMessageContent(){
