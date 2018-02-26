@@ -2,6 +2,7 @@ package Specs;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.FileDetector;
 import org.openqa.selenium.remote.LocalFileDetector;
@@ -15,22 +16,28 @@ import java.util.concurrent.TimeUnit;
 
 public class SpecsBaseClass extends SuperBaseClass{
 
+    private ThreadLocal<String> sessionId = new ThreadLocal<String>();
 
     @BeforeMethod ()
     public void InitializeTests(Method method) throws MalformedURLException {
-        driver = getDriver(method.getName());
-       // driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        this.driver.set(getDriver(method.getName()));
+
+        // set current sessionId
+        String id = ((RemoteWebDriver) this.driver.get()).getSessionId().toString();
+        sessionId.set(id);
+
+        //driver = new FirefoxDriver();
+        this.driver.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         InitHelpers("https://www.1800contactstest.com/");
         InitPages();
 
-        driver.get(driverHelper.baseUrl);
+        this.driver.get().get(driverHelper.get().baseUrl);
     }
 
     @AfterMethod
     public  void CleanUpDriver(){
-        driver.quit();
+        this.driver.get().quit();
     }
 
 

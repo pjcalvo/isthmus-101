@@ -12,9 +12,9 @@ public class OrderTests extends SpecsBaseClass{
     @Test
     public void PlaceOrder() {
 
-        productPage.GoTo();
-        productPage.clickContinue();
-        productPage.uploadFile();
+        productPage.get().GoTo();
+        productPage.get().clickContinue();
+        productPage.get().uploadFile();
 
 
 

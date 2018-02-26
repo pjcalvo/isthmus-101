@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="0" parallel="methods" thread-count="2">
+    <parameter name="environment" value="chrome"/>
+    <!--<parameter name="config" value="single.conf.json"/>-->
+    <parameter name="baseURL" value="https://www.1800contactstest.com"/>
+    <test name="RegressionTests" >
+        <classes>
+            <class name="Specs.LoginTests" />
+            <class name="Specs.OrderTests" />
+        </classes>
+    </test>
+</suite>

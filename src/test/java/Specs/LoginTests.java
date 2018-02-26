@@ -14,26 +14,25 @@ public class LoginTests extends SpecsBaseClass{
     @Test
     public void LoginSuccessful() {
 
-            header.clickLogin();
-            signInModal.signInUser();
+            header.get().clickLogin();
+            signInModal.get().signInUser();
 
-            Assert.assertTrue(header.isUserSignedIn());
+            Assert.assertTrue(header.get().isUserSignedIn());
     }
 
     @Test
-    public void LoginFailure_Firefox() throws InterruptedException {
+    public void LoginFailure() throws InterruptedException {
 
         //data test
-        User testUser = dataHelper.existingUser();
-        testUser.password = "1234567";
+        User testUser = dataHelper.nonexistingUser();
 
         //steps
-        header.clickLogin();
-        signInModal.signInUser(testUser);
+        header.get().clickLogin();
+        signInModal.get().signInUser(testUser);
 
         //asserts
         Assert.assertEquals("We're sorry, something went wrong signing in. Please make sure your information is correct and try again.",
-                signInModal.errorMessageContent());
+                signInModal.get().errorMessageContent());
     }
 
 }
