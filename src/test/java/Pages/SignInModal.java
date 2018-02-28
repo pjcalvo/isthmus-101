@@ -16,6 +16,9 @@ public class SignInModal{
     @FindBy(xpath = "//input[@data-selenium-id='txtPassword']")
     WebElement passwordInput;
 
+    @FindBy(xpath = "//div[@data-selenium-id='keepMeSignedIn']//label")
+    WebElement rememberMeCheck;
+
     @FindBy(xpath = "//input[@value='Sign In']")
     WebElement submitButton;
 
@@ -32,13 +35,22 @@ public class SignInModal{
         this.dataHelper = dataHelper;
     }
 
-    public void signInUser(User _testUser){
+    public void signInUser(User _testUser, Boolean rememberMe){
 
         this.emailInput.sendKeys(_testUser.email);
         this.passwordInput.sendKeys(_testUser.password);
+
+        if(rememberMe){
+            rememberMeCheck.click();
+        }
+
         this.submitButton.click();
 
-        driver.manage().deleteAllCookies();
+    }
+
+    public void signInUser(User _testUser){
+
+        signInUser(_testUser, false);
     }
 
     public void signInUser(){

@@ -6,6 +6,6 @@ public class DataHelper {
     public DataHelper(){}
 
     public User existingUser(){
-        return new User("pablo@pablillo.com","123456");
+        return new User("emma@pablillo.com","123456");
     }
 }

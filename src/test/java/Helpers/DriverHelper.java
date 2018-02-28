@@ -1,12 +1,13 @@
 package Helpers;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.html5.LocalStorage;
+import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.support.ui.Select;
-
-import java.nio.file.Paths;
 
 public class DriverHelper {
 
@@ -18,9 +19,9 @@ public class DriverHelper {
         this.baseUrl = baseUrl;
     }
 
-    public void executeJavaScript(String script){
+    public Object executeJavaScript(String script){
         JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript(script);
+        return js.executeScript(script);
     }
 
     public void selectElementFromDropDown(WebElement element, Boolean byValue, String value){
@@ -40,7 +41,9 @@ public class DriverHelper {
         fileUpload.sendKeys(filePath);
     }
 
-
-
+    public Boolean isLocalStorage(String key){
+        LocalStorage localStorage = ((WebStorage)driver).getLocalStorage();
+        return !(localStorage.getItem(key) == null);
+    }
 }
 

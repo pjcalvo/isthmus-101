@@ -16,8 +16,6 @@ public class OrderTests extends SpecsBaseClass{
         productPage.clickContinue();
         productPage.uploadFile();
 
-
-
         //rxDetailsPage.uploadFile();
         //rxDetailsPage.clickContinue();
 
