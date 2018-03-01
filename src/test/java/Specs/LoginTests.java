@@ -14,7 +14,6 @@ import org.testng.annotations.*;
 public class LoginTests extends SpecsBaseClass{
 
     @Test
-    @Ignore
     public void LoginSuccessful() {
 
             header.clickLogin();
@@ -24,21 +23,6 @@ public class LoginTests extends SpecsBaseClass{
     }
 
     @Test
-    @Ignore
-    public void LogOutSuccesful() throws InterruptedException {
-
-        header.clickLogin();
-        signInModal.signInUser();
-
-        Thread.sleep(5000);
-
-        header.signOut();
-
-
-    }
-
-    @Test
-    @Ignore
     public void LoginFailure_Firefox() throws InterruptedException {
 
         //data test
@@ -83,5 +67,23 @@ public class LoginTests extends SpecsBaseClass{
         //asserts
         Assert.assertFalse(driverHelper.isLocalStorage("autoLoginToken"));
     }
+
+    @Test
+    public void LogOutSuccessful_Should_Remove_AutoLogin_Cookie() throws InterruptedException {
+
+        //data test
+        User testUser = dataHelper.existingUser();
+
+        header.clickLogin();
+
+        signInModal.signInUser(testUser,true);
+        Thread.sleep(5000);
+
+        header.signOut();
+
+        Assert.assertFalse(driverHelper.isLocalStorage("autoLoginToken"));
+
+    }
+
 
 }
