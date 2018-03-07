@@ -8,7 +8,7 @@ import org.testng.annotations.*;
 
 public class LoginTests extends SpecsBaseClass{
 
-    @Test (dataProvider = "AuthenticationUsers", dataProviderClass = DataHelper.class)
+    @Test (dataProvider = "AuthenticationUsers1", dataProviderClass = DataHelper.class)
     public void LoginSuccessful(String sEmail, String sPassword) {
 
             User testUser = new User(sEmail, sPassword);

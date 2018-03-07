@@ -29,7 +29,7 @@ public class SuperBaseClass {
     }
 
     protected void InitHelpers(String baseUrl){
-        dataHelper = new DataHelper(new ExcelHelper());
+        dataHelper = new DataHelper();
         driverHelper = new DriverHelper(driver, baseUrl);
     }
 }

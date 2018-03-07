@@ -26,7 +26,7 @@ public class ExcelHelper {
 
             String filePath = new java.io.File("").getAbsolutePath();
 
-            FileInputStream ExcelFile = new FileInputStream(filePath + "/src/test/java/resources/Data/o" + FilePath);
+            FileInputStream ExcelFile = new FileInputStream(filePath + "/src/test/java/resources/Data/" + FilePath);
 
             // Access the required test data sheet
 
