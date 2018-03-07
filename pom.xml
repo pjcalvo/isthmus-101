@@ -22,6 +22,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.hellojavaer</groupId>
+            <artifactId>poi-excel-utils</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
     </dependencies>
 
 

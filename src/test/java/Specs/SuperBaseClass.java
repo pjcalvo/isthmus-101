@@ -2,6 +2,7 @@ package Specs;
 
 import Helpers.DataHelper;
 import Helpers.DriverHelper;
+import Helpers.ExcelHelper;
 import Pages.Header;
 import Pages.ProductPage;
 import Pages.SignInModal;
@@ -28,7 +29,7 @@ public class SuperBaseClass {
     }
 
     protected void InitHelpers(String baseUrl){
-        dataHelper = new DataHelper();
+        dataHelper = new DataHelper(new ExcelHelper());
         driverHelper = new DriverHelper(driver, baseUrl);
     }
 }

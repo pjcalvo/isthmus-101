@@ -1,28 +1,25 @@
 package Specs;
 
+import Helpers.DataHelper;
 import Helpers.DriverHelper;
 import Model.User;
-import Pages.SignInModal;
-import org.junit.Ignore;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class LoginTests extends SpecsBaseClass{
 
-    @Test
-    public void LoginSuccessful() {
+    @Test (dataProvider = "AuthenticationUsers", dataProviderClass = DataHelper.class)
+    public void LoginSuccessful(String sEmail, String sPassword) {
+
+            User testUser = new User(sEmail, sPassword);
 
             header.clickLogin();
-            signInModal.signInUser();
+            signInModal.signInUser(testUser);
 
             Assert.assertTrue(header.isUserSignedIn());
     }
 
-    @Test
+    @Test (enabled = false)
     public void LoginFailure_Firefox() throws InterruptedException {
 
         //data test
@@ -38,7 +35,7 @@ public class LoginTests extends SpecsBaseClass{
                 signInModal.errorMessageContent());
     }
 
-    @Test
+    @Test (enabled = false)
     public void Login_RememberMe_Receives_AutoLogin_Cookie() throws InterruptedException {
 
         //data test
@@ -53,7 +50,7 @@ public class LoginTests extends SpecsBaseClass{
         Assert.assertTrue(driverHelper.isLocalStorage("refreshToken"));
     }
 
-    @Test
+    @Test (enabled = false)
     public void Login_Not_RememberMe_Receives_AutoLogin_Cookie() throws InterruptedException {
 
         //data test
@@ -68,7 +65,7 @@ public class LoginTests extends SpecsBaseClass{
         Assert.assertFalse(driverHelper.isLocalStorage("autoLoginToken"));
     }
 
-    @Test
+    @Test (enabled = false)
     public void LogOutSuccessful_Should_Remove_AutoLogin_Cookie() throws InterruptedException {
 
         //data test

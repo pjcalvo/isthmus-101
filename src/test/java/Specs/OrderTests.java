@@ -12,14 +12,13 @@ public class OrderTests extends SpecsBaseClass{
     @Test
     public void PlaceOrder() {
 
-        productPage.GoTo();
-        productPage.clickContinue();
-        productPage.uploadFile();
+        productPage.GoTo("acuvue");
 
-        //rxDetailsPage.uploadFile();
-        //rxDetailsPage.clickContinue();
+        /* complete the assertion
 
-        //finish the place order
+        Assert.assertEquals(productPage.productTitle,
+                "ACUVUE® VITA™ for Astigmatism");
 
+        */
     }
 }

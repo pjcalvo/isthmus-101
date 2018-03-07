@@ -3,7 +3,6 @@ package Pages;
 import Helpers.DriverHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.FileDetector;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -22,8 +21,8 @@ public class ProductPage {
         PageFactory.initElements(driver,this);
     }
 
-    public void GoTo(){
-        driver.navigate().to(driverHelper.baseUrl + "lens/biofinity-xr");
+    public void GoTo(String testProduct){
+        driver.navigate().to(driverHelper.baseUrl + "lens/" + testProduct);
     }
 
     public void clickContinue(){

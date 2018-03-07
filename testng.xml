@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="5">
+
+    <parameter name="baseURL" value="https://www.1800contactstest.com"/>
+
+    <test name="RegressionTests-Chrome" >
+        <parameter name="environment" value="chrome"/>
+        <classes>
+            <class name="Specs.LoginTests" />
+        </classes>
+    </test>
+
+    <test name="RegressionTests-Firefox" >
+        <parameter name="environment" value="firefox"/>
+        <classes>
+            <class name="Specs.LoginTests" />
+        </classes>
+    </test>
+
+</suite>
