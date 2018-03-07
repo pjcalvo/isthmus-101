@@ -98,7 +98,16 @@ public class ExcelHelper {
 
                 return "";
 
-            }else{
+            }
+
+            if  (dataType == 0) {
+
+                String CellData = Cell.getRawValue();
+                return CellData;
+
+            }
+
+            else{
 
                 String CellData = Cell.getStringCellValue();
 
