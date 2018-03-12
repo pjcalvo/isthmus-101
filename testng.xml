@@ -7,14 +7,14 @@
     <test name="RegressionTests-Chrome" >
         <parameter name="environment" value="chrome"/>
         <classes>
-            <class name="Specs.LoginTests" />
+            <class name="Specs.SampleTests" />
         </classes>
     </test>
 
     <test name="RegressionTests-Firefox" >
         <parameter name="environment" value="firefox"/>
         <classes>
-            <class name="Specs.LoginTests" />
+            <class name="Specs.SampleTests" />
         </classes>
     </test>
 

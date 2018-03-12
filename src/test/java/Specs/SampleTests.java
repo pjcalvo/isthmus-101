@@ -13,7 +13,7 @@ public class SampleTests extends SpecsBaseClass{
 
             User testUser = new User(sEmail, sPassword);
 
-          //  header.clickLogin();
+              pageObjectSample.clickLogin();
           //  signInModal.signInUser(testUser);
 
            // Assert.assertTrue(header.isUserSignedIn());

@@ -23,8 +23,7 @@ public class DataHelper {
     @DataProvider(name="AuthenticationUsers1")
     public static Object[][] credentials1() throws Exception {
 
-        //return CsvHelper.getCSVArray("Users.csv");
-        return null;
+        return CsvHelper.getCSVArray("Users.csv");
 
     }
 }
