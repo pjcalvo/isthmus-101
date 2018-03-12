@@ -2,10 +2,7 @@ package Specs;
 
 import Helpers.DataHelper;
 import Helpers.DriverHelper;
-import Helpers.ExcelHelper;
-import Pages.Header;
-import Pages.ProductPage;
-import Pages.SignInModal;
+import Pages.PageObjectSample;
 import org.openqa.selenium.WebDriver;
 
 public class SuperBaseClass {
@@ -13,9 +10,7 @@ public class SuperBaseClass {
     WebDriver driver;
 
     //pages
-    SignInModal signInModal;
-    Header header;
-    ProductPage productPage;
+    PageObjectSample pageObjectSample;
 
     //helpers
     DataHelper dataHelper;
@@ -23,9 +18,7 @@ public class SuperBaseClass {
 
 
     protected void InitPages(){
-        signInModal = new SignInModal(this.driver, dataHelper);
-        header = new Header(this.driver);
-        productPage = new ProductPage(this.driver, driverHelper);
+        pageObjectSample = new PageObjectSample(this.driver);
     }
 
     protected void InitHelpers(String baseUrl){
