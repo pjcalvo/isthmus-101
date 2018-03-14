@@ -11,6 +11,9 @@ public class SuperBaseClass {
 
     //pages
     PageObjectSample pageObjectSample;
+    LoginPage loginPage;
+    WelcomePage welcomePage;
+    CreateUser createUser;
 
     //helpers
     DataHelper dataHelper;
@@ -18,7 +21,11 @@ public class SuperBaseClass {
 
 
     protected void InitPages(){
+
         pageObjectSample = new PageObjectSample(this.driver);
+        LoginPage loginPage = new LoginPage();
+        WelcomePage welcomePage = new WelcomePage();
+        CreateUser createUser  = new CreateUser();
     }
 
     protected void InitHelpers(String baseUrl){
