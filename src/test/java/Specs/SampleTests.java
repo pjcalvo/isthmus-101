@@ -9,14 +9,17 @@ import org.testng.annotations.*;
 public class SampleTests extends SpecsBaseClass{
 
     @Test (dataProvider = "AuthenticationUsers1", dataProviderClass = DataHelper.class)
-    public void LoginSuccessful(String sEmail, String sPassword) {
+    public void LoginSuccessful(String sUserName, String sPassword) {
 
-            User testUser = new User(sEmail, sPassword);
+            User testUser = new User(sUserName, sPassword);
 
-              pageObjectSample.clickLogin();
+              pageObjectSample.signInUser();
           //  signInModal.signInUser(testUser);
 
            // Assert.assertTrue(header.isUserSignedIn());
     }
+
+    @Test (dataProvider = "AuthenticationUsers1", dataProviderClass = DataHelper.class)
+
 
 }
