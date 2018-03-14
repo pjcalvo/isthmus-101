@@ -17,6 +17,7 @@ public class SuperBaseClass {
     WelcomePage welcomePage;
     CreateUser createUser;
 
+
     //helpers
     DataHelper dataHelper;
     DriverHelper driverHelper;

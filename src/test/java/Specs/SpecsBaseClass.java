@@ -25,8 +25,13 @@ public class SpecsBaseClass extends SuperBaseClass{
         if (environment == null )
             environment = "chrome";
         if (baseUrl == null)
+<<<<<<< Updated upstream
 
             baseUrl = "https://testingcr-demo.glitch.me";
+=======
+            baseUrl = "http://testingcr-demo.glitch.me/";
+        //driver = getDriver(method.getName());
+>>>>>>> Stashed changes
 
         if (environment.equals("chrome"))
             driver = new ChromeDriver();
